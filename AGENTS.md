@@ -11,13 +11,13 @@
 
 | Category           | Technology                                       | Purpose                          |
 | ------------------ | ------------------------------------------------ | -------------------------------- |
-| **Core API**       | [Fabric API](https://fabricmc.net/) 0.102.0+1.21 | Minecraft mod API                |
+| **Core API**       | [Fabric API](https://fabricmc.net/) 0.164.0+26.3 | Minecraft mod API                |
 | **Language**       | Kotlin 2.4.21                                    | JVM language                     |
 | **Build Tool**     | Gradle (Kotlin DSL)                              | Build automation                 |
-| **Gradle Plugins** | fabric-loom 1.10-SNAPSHOT                        | Fabric mod development           |
-|                    | kotlin("jvm") 2.1.0                              | Kotlin compilation               |
+| **Gradle Plugins** | `net.fabricmc.fabric-loom` 1.18-SNAPSHOT         | Fabric mod development           |
+|                    | kotlin("jvm") 2.4.21                             | Kotlin compilation               |
 |                    | ktlint 12.3.0                                    | Kotlin linting                   |
-| **Runtime**        | fabric-language-kotlin 1.13.0+kotlin.2.1.0       | Kotlin runtime on Fabric clients |
+| **Runtime**        | fabric-language-kotlin 1.14.2+kotlin.2.4.21      | Kotlin runtime on Fabric clients |
 | **Code Style**     | ktlint                                           | Kotlin linting                   |
 
 ## Quick Commands
@@ -53,16 +53,18 @@ randomblockplacement/       # Repo root
 ├── AGENTS.md               # This file
 ├── GUIDE.md                # Player/build guide
 ├── README.md               # Project overview
-├── src/                    # Common (main) Kotlin source
-│   ├── RandomBlockPlacement.kt
-│   └── data/
-│       └── RandomBlockPlacementDataGenerator.kt
-├── src/client/             # Client-side Kotlin source
-│   ├── RandomBlockPlacementClient.kt
-│   ├── RandomBlockPlacementRenderer.kt
-│   ├── KeyBindings.kt
-│   └── mixins/client/
-│       └── PlayerInteractBlockMixin.kt
+├── src/main/kotlin/        # Common (main) Kotlin source
+│   └── org/xodium/
+│       ├── RandomBlockPlacement.kt
+│       └── data/
+│           └── RandomBlockPlacementDataGenerator.kt
+├── src/client/kotlin/      # Client-side Kotlin source
+│   └── org/xodium/
+│       ├── RandomBlockPlacementClient.kt
+│       ├── RandomBlockPlacementRenderer.kt
+│       ├── KeyBindings.kt
+│       └── mixin/client/
+│           └── PlayerInteractBlockMixin.kt
 ├── src/main/resources/     # Common resources
 │   ├── fabric.mod.json
 │   ├── randomblockplacement.mixins.json
@@ -87,8 +89,10 @@ randomblockplacement/       # Repo root
 
 ### Key Conventions
 
-- All internal classes use `internal` visibility.
+- Most internal classes use `internal` visibility.
+- The common entry point (`RandomBlockPlacement`) is `public` so its `MOD_ID` helper is accessible from the client source set across Loom's split environment source sets.
 - Entry points are `object` singletons loaded through the `kotlin` adapter from `fabric-language-kotlin`.
+- Minecraft 26.3 is unobfuscated, so no `mappings` dependency or Intermediary is used; code references official Mojang-style class names (e.g., `Minecraft`, `LocalPlayer`, `Identifier`).
 - ktlint is enforced; wildcard imports are disabled globally via `.editorconfig`.
 - **Import types instead of using fully qualified paths**.
 - **Use `it` for single-parameter lambdas**.
