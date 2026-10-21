@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry
 import net.minecraft.client.Minecraft
 import net.minecraft.client.player.LocalPlayer
+import net.minecraft.network.chat.Component
 import net.minecraft.world.item.BlockItem
 import java.util.Random
 
@@ -46,6 +47,18 @@ internal object RandomBlockPlacementClient : ClientModInitializer {
     /** Toggles random block placement mode when the bound key is pressed. */
     fun onRandomPlaceKeyPressed() {
         randomPlacementMode = !randomPlacementMode
+
+        val translationKey =
+            if (randomPlacementMode) {
+                "randomblockplacement.enabled"
+            } else {
+                "randomblockplacement.disabled"
+            }
+        Minecraft
+            .getInstance()
+            .gui
+            .hud
+            .setOverlayMessage(Component.translatable(translationKey), false)
     }
 
     /** Selects a random hotbar slot containing a block when the player places a block. */
