@@ -17,7 +17,12 @@ base {
 
 repositories {
     mavenCentral()
-    maven("https://maven.fabricmc.net/")
+    maven("https://maven.fabricmc.net/") {
+        metadataSources {
+            mavenPom()
+            artifact()
+        }
+    }
 }
 
 loom {

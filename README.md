@@ -30,7 +30,7 @@ The **Random Block Placement Mod** is a Minecraft Fabric client mod that adds a 
 ## Build from Source
 
 ```bash
-git clone https://github.com/XodiumSoftware/randomblockplacement.git
+git clone git@github.com:XodiumSoftware/randomblockplacement.git
 cd randomblockplacement
 just build
 ```

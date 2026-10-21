@@ -21,7 +21,7 @@
 
 ## Download
 
-Download the latest `.jar` from the [Releases](https://github.com/MEGATREX4/randomblockplacement/releases) page.
+Download the latest `.jar` from the [Releases](https://github.com/XodiumSoftware/randomblockplacement/releases) page.
 
 ## Build from Source
 
@@ -37,7 +37,7 @@ Build the mod using Gradle.
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/MEGATREX4/randomblockplacement.git
+    git clone git@github.com:XodiumSoftware/randomblockplacement.git
     cd randomblockplacement
     ```
 
