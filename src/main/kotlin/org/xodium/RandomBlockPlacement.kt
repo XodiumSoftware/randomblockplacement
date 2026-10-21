@@ -5,7 +5,7 @@ import net.minecraft.resources.Identifier
 import org.slf4j.LoggerFactory
 
 /** Main entry point for the Random Block Placement mod. */
-internal object RandomBlockPlacement : ModInitializer {
+object RandomBlockPlacement : ModInitializer {
     /** Mod identifier used for logging and Fabric metadata. */
     const val MOD_ID: String = "randomblockplacement"
 

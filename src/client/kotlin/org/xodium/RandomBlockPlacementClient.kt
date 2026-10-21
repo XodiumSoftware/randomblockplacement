@@ -18,7 +18,7 @@ internal object RandomBlockPlacementClient : ClientModInitializer {
         KeyBindings.register()
 
         ClientTickEvents.END_CLIENT_TICK.register { client ->
-            if (client.player == null || client.screen != null) return@register
+            if (client.player == null || client.gui.screen() != null) return@register
 
             val isRightClicking = client.options.keyUse.isDown
             val isPlacingBlock = isRightClicking && !wasRightClicking
