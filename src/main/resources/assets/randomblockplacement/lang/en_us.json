@@ -1,6 +1,6 @@
 {
     "key.randomblockplacement.random_place": "Toggle Random Placement Mode",
     "key.category.randomblockplacement.key_category": "Random Block Placement",
-    "randomblockplacement.enabled": "Random Placement Mode Enabled",
-    "randomblockplacement.disabled": "Random Placement Mode Disabled"
+    "randomblockplacement.enabled": "Random Placement Mode %s",
+    "randomblockplacement.disabled": "Random Placement Mode %s"
 }

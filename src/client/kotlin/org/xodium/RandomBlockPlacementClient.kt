@@ -3,6 +3,7 @@ package org.xodium
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry
+import net.minecraft.ChatFormatting
 import net.minecraft.client.Minecraft
 import net.minecraft.client.player.LocalPlayer
 import net.minecraft.network.chat.Component
@@ -48,17 +49,23 @@ internal object RandomBlockPlacementClient : ClientModInitializer {
     fun onRandomPlaceKeyPressed() {
         randomPlacementMode = !randomPlacementMode
 
-        val translationKey =
+        val (translationKey, statusText, color) =
             if (randomPlacementMode) {
-                "randomblockplacement.enabled"
+                Triple("randomblockplacement.enabled", "ON", ChatFormatting.GREEN)
             } else {
-                "randomblockplacement.disabled"
+                Triple("randomblockplacement.disabled", "OFF", ChatFormatting.RED)
             }
         Minecraft
             .getInstance()
             .gui
             .hud
-            .setOverlayMessage(Component.translatable(translationKey), false)
+            .setOverlayMessage(
+                Component.translatable(
+                    translationKey,
+                    Component.literal(statusText).withStyle(color),
+                ),
+                false,
+            )
     }
 
     /** Selects a random hotbar slot containing a block when the player places a block. */
