@@ -3,7 +3,7 @@
 <h1 align="center">
   <br />
     <a href="https://xodium.org/">
-        <img src="logo.svg" alt="RandomBlockPlacement Logo" width="200">
+        <img src="src\main\resources\assets\randomblockplacement\icon.png" alt="RandomBlockPlacement Logo" width="200">
     </a>
   <br /><br />
   RandomBlockPlacement
