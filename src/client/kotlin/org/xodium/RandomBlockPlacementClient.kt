@@ -2,10 +2,10 @@ package org.xodium
 
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
-import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback
-import net.minecraft.client.MinecraftClient
-import net.minecraft.client.network.ClientPlayerEntity
-import net.minecraft.item.BlockItem
+import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry
+import net.minecraft.client.Minecraft
+import net.minecraft.client.player.LocalPlayer
+import net.minecraft.world.item.BlockItem
 import java.util.Random
 
 /** Client-side entry point that handles input, random slot selection, and HUD rendering. */
@@ -18,9 +18,9 @@ internal object RandomBlockPlacementClient : ClientModInitializer {
         KeyBindings.register()
 
         ClientTickEvents.END_CLIENT_TICK.register { client ->
-            if (client.player == null || client.currentScreen != null) return@register
+            if (client.player == null || client.screen != null) return@register
 
-            val isRightClicking = client.options.useKey.isPressed
+            val isRightClicking = client.options.keyUse.isDown
             val isPlacingBlock = isRightClicking && !wasRightClicking
 
             if (randomPlacementMode && isPlacingBlock) {
@@ -31,10 +31,14 @@ internal object RandomBlockPlacementClient : ClientModInitializer {
             }
         }
 
-        HudRenderCallback.EVENT.register { drawContext, _ ->
+        HudElementRegistry.addLast(RandomBlockPlacement.id("hud")) { extractor, _ ->
             if (randomPlacementMode) {
-                val client = MinecraftClient.getInstance()
-                RandomBlockPlacementRenderer.render(drawContext, client.window.scaledWidth, client.window.scaledHeight)
+                val client = Minecraft.getInstance()
+                RandomBlockPlacementRenderer.render(
+                    extractor,
+                    client.window.guiScaledWidth,
+                    client.window.guiScaledHeight,
+                )
             }
         }
     }
@@ -45,15 +49,15 @@ internal object RandomBlockPlacementClient : ClientModInitializer {
     }
 
     /** Selects a random hotbar slot containing a block when the player places a block. */
-    fun handleBlockPlacement(player: ClientPlayerEntity) {
+    fun handleBlockPlacement(player: LocalPlayer) {
         if (!randomPlacementMode) return
-        if (player.mainHandStack.item !is BlockItem) return
+        if (player.mainHandItem.item !is BlockItem) return
         randomizeHotbarSlot(player)
     }
 
-    private fun randomizeHotbarSlot(player: ClientPlayerEntity) {
+    private fun randomizeHotbarSlot(player: LocalPlayer) {
         val currentSlot = player.inventory.selectedSlot
-        val blockSlots = (0..8).filter { player.inventory.getStack(it).item is BlockItem }
+        val blockSlots = (0..8).filter { player.inventory.getItem(it).item is BlockItem }
 
         if (blockSlots.size <= 1) return
 

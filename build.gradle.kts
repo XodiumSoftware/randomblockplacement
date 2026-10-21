@@ -1,9 +1,8 @@
-import org.gradle.api.tasks.SourceSet
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("fabric-loom") version "1.18-SNAPSHOT"
+    id("net.fabricmc.fabric-loom") version "1.18-SNAPSHOT"
     kotlin("jvm") version "2.4.21"
     id("org.jlleitschuh.gradle.ktlint") version "12.3.0"
 }
@@ -37,11 +36,10 @@ loom {
 }
 
 dependencies {
-    mappings("net.fabricmc:intermediary:26.3:v2@jar")
     minecraft("com.mojang:minecraft:${property("minecraft_version")}")
-    modImplementation("net.fabricmc:fabric-loader:${property("loader_version")}")
-    modImplementation("net.fabricmc.fabric-api:fabric-api:${property("fabric_version")}")
-    modImplementation("net.fabricmc:fabric-language-kotlin:${property("fabric_kotlin_version")}")
+    implementation("net.fabricmc:fabric-loader:${property("loader_version")}")
+    implementation("net.fabricmc.fabric-api:fabric-api:${property("fabric_version")}")
+    implementation("net.fabricmc:fabric-language-kotlin:${property("fabric_kotlin_version")}")
     compileOnly(kotlin("stdlib"))
 }
 
@@ -49,17 +47,6 @@ java {
     withSourcesJar()
     toolchain {
         languageVersion = JavaLanguageVersion.of(25)
-    }
-}
-
-sourceSets {
-    main {
-        kotlin.setSrcDirs(listOf("src"))
-        resources.srcDirs("src/main/resources")
-    }
-    named<SourceSet>("client") {
-        kotlin.setSrcDirs(listOf("src/client"))
-        resources.srcDirs("src/client/resources")
     }
 }
 
