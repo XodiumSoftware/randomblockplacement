@@ -1,6 +1,6 @@
-package com.megatrex4.mixin.client
+package org.xodium.mixin.client
 
-import com.megatrex4.RandomBlockPlacementClient
+import org.xodium.RandomBlockPlacementClient
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.network.ClientPlayerEntity
 import net.minecraft.client.network.ClientPlayerInteractionManager

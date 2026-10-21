@@ -1,4 +1,4 @@
-package com.megatrex4
+package org.xodium
 
 import com.mojang.blaze3d.systems.RenderSystem
 import net.minecraft.client.MinecraftClient

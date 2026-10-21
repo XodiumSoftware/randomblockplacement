@@ -4,31 +4,31 @@
     "version": "${version}",
     "name": "RandomBlockPlacement",
     "description": "Simple placement of random blocks from hotbar!",
-    "authors": ["MEGATREX4"],
+    "authors": ["MEGATREX4", "illyrius666"],
     "contact": {
-        "homepage": "https://megatrex4.netlify.app/",
-        "sources": "https://github.com/MEGATREX4/randomblockplacement"
+        "homepage": "https://xodium.org/",
+        "sources": "https://github.com/XodiumSoftware/randomblockplacement"
     },
-    "license": "CC0-1.0",
+    "license": "AGPL-3.0",
     "icon": "assets/randomblockplacement/icon.png",
     "environment": "*",
     "entrypoints": {
         "main": [
             {
                 "adapter": "kotlin",
-                "value": "com.megatrex4.RandomBlockPlacement"
+                "value": "org.xodium.RandomBlockPlacement"
             }
         ],
         "client": [
             {
                 "adapter": "kotlin",
-                "value": "com.megatrex4.RandomBlockPlacementClient"
+                "value": "org.xodium.RandomBlockPlacementClient"
             }
         ],
         "fabric-datagen": [
             {
                 "adapter": "kotlin",
-                "value": "com.megatrex4.data.RandomBlockPlacementDataGenerator"
+                "value": "org.xodium.data.RandomBlockPlacementDataGenerator"
             }
         ]
     },

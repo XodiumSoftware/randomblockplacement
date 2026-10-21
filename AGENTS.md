@@ -83,7 +83,7 @@ randomblockplacement/       # Repo root
 
 - All entry points are Kotlin `object` singletons.
 - The mod uses compile-time constants only — there is no file-based configuration.
-- Client mixins live in `com.megatrex4.mixin.client` and are declared in `randomblockplacement.client.mixins.json`.
+- Client mixins live in `org.xodium.mixin.client` and are declared in `randomblockplacement.client.mixins.json`.
 
 ### Key Conventions
 

@@ -19,7 +19,7 @@ The **Random Block Placement Mod** is a Minecraft Fabric client mod that adds a 
 
 ## Installation
 
-1. **Download** the latest release from the [Releases](https://github.com/MEGATREX4/randomblockplacement/releases) page.
+1. **Download** the latest release from the [Releases](https://github.com/XodiumSoftware/randomblockplacement/releases) page.
 2. Install the required dependencies:
     - [Fabric Loader](https://fabricmc.net/use/)
     - [Fabric API](https://modrinth.com/mod/fabric-api)
@@ -30,7 +30,7 @@ The **Random Block Placement Mod** is a Minecraft Fabric client mod that adds a 
 ## Build from Source
 
 ```bash
-git clone https://github.com/MEGATREX4/randomblockplacement.git
+git clone https://github.com/XodiumSoftware/randomblockplacement.git
 cd randomblockplacement
 just build
 ```

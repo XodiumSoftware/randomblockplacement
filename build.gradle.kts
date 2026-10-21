@@ -32,6 +32,7 @@ loom {
 }
 
 dependencies {
+    mappings("net.fabricmc:intermediary:26.3:v2@jar")
     minecraft("com.mojang:minecraft:${property("minecraft_version")}")
     modImplementation("net.fabricmc:fabric-loader:${property("loader_version")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("fabric_version")}")

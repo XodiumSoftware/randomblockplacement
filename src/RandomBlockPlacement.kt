@@ -1,4 +1,4 @@
-package com.megatrex4
+package org.xodium
 
 import net.fabricmc.api.ModInitializer
 import org.slf4j.LoggerFactory

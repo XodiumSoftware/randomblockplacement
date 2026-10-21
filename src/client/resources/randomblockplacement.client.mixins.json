@@ -1,6 +1,6 @@
 {
     "required": true,
-    "package": "com.megatrex4.mixin.client",
+    "package": "org.xodium.mixin.client",
     "compatibilityLevel": "JAVA_25",
     "client": ["PlayerInteractBlockMixin"],
     "injectors": {
