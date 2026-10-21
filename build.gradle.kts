@@ -56,6 +56,9 @@ tasks {
         filesMatching("fabric.mod.json") {
             expand("version" to project.version)
         }
+        filesMatching("quilt.mod.json") {
+            expand("version" to project.version)
+        }
     }
     withType<JavaCompile>().configureEach {
         options.encoding = "UTF-8"

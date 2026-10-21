@@ -38,9 +38,12 @@
 ## Requirements
 
 - **Minecraft** 26.3
-- **Fabric Loader** 0.19.5 or newer
+- **Fabric Loader** 0.19.5 or newer (or **Quilt Loader** 0.26.0 or newer)
 - **Fabric Language Kotlin** 1.14.2 or newer
+- **Fabric API** 0.164.0+ (Fabric) or **Quilted Fabric API** (Quilt)
 - **Java** 25
+
+Quilt support is metadata-ready: the same JAR can load on Quilt once `Quilted Fabric API` is available for Minecraft 26.3.
 
 ## Building
 

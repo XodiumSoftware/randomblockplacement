@@ -1,0 +1,53 @@
+{
+    "schema_version": 1,
+    "quilt_loader": {
+        "group": "org.xodium",
+        "id": "randomblockplacement",
+        "version": "${version}",
+        "metadata": {
+            "name": "RandomBlockPlacement",
+            "description": "Simple placement of random blocks from hotbar!",
+            "authors": ["MEGATREX4", "illyrius666"],
+            "contact": {
+                "homepage": "https://xodium.org/",
+                "sources": "https://github.com/XodiumSoftware/randomblockplacement"
+            },
+            "license": "AGPL-3.0",
+            "icon": "assets/randomblockplacement/icon.png"
+        },
+        "intermediate_mappings": "net.fabricmc:intermediary",
+        "entrypoints": {
+            "init": [
+                {
+                    "adapter": "kotlin",
+                    "value": "org.xodium.RandomBlockPlacement"
+                }
+            ],
+            "client_init": [
+                {
+                    "adapter": "kotlin",
+                    "value": "org.xodium.RandomBlockPlacementClient"
+                }
+            ]
+        },
+        "depends": [
+            {
+                "id": "minecraft",
+                "versions": "~26.3"
+            },
+            {
+                "id": "quilt_loader",
+                "versions": ">=0.26.0"
+            },
+            {
+                "id": "quilted_fabric_api",
+                "versions": "*"
+            },
+            {
+                "id": "fabric-language-kotlin",
+                "versions": ">=1.14.2"
+            }
+        ]
+    },
+    "mixin": "randomblockplacement.client.mixins.json"
+}

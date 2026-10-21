@@ -14,10 +14,12 @@
 ## Prerequisites
 
 - [Minecraft](https://minecraft.net/) 26.3
-- [Fabric Loader](https://fabricmc.net/use/) 0.20.1+
-- [Fabric API](https://modrinth.com/mod/fabric-api) 0.164.0+
+- [Fabric Loader](https://fabricmc.net/use/) 0.20.1+ **or** [Quilt Loader](https://quiltmc.org/en/install/) 0.26.0+
+- [Fabric API](https://modrinth.com/mod/fabric-api) 0.164.0+ (Fabric) **or** Quilted Fabric API (Quilt)
 - [Fabric Language Kotlin](https://modrinth.com/mod/fabric-language-kotlin) 1.14.2+
 - Java 25
+
+Quilt support is currently pending a `Quilted Fabric API` release for Minecraft 26.3; the JAR already includes the necessary `quilt.mod.json` metadata.
 
 ## Download
 
@@ -71,10 +73,10 @@ This starts a local Minecraft client with the mod loaded.
 
 ## Installation
 
-1. Install Fabric Loader for Minecraft 26.3.
-2. Download `randomblockplacement-<version>.jar`, `Fabric API`, and `Fabric Language Kotlin`.
-3. Place all three `.jar` files into your Minecraft `mods/` folder.
-4. Launch Minecraft with the Fabric profile.
+1. Install **Fabric Loader** or **Quilt Loader** for Minecraft 26.3.
+2. Download `randomblockplacement-<version>.jar`, the matching API mod (`Fabric API` or `Quilted Fabric API`), and `Fabric Language Kotlin`.
+3. Place all `.jar` files into your Minecraft `mods/` folder.
+4. Launch Minecraft with the Fabric or Quilt profile.
 
 ## Usage
 
@@ -110,8 +112,9 @@ just format
 
 ### Mod crashes on launch
 
-- Ensure `Fabric API` and `Fabric Language Kotlin` are installed.
+- Ensure the correct API mod (`Fabric API` / `Quilted Fabric API`) and `Fabric Language Kotlin` are installed.
 - Check that the Minecraft version matches the mod's target version.
+- Quilt support for Minecraft 26.3 requires a matching `Quilted Fabric API` release.
 
 ---
 

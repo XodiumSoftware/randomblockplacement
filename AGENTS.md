@@ -3,22 +3,23 @@
 ## Project at a Glance
 
 - **Name:** RandomBlockPlacement
-- **Type:** Minecraft Fabric client mod
+- **Type:** Minecraft Fabric/Quilt client mod
 - **MC Version:** 26.3
 - **Language:** Kotlin (JVM 25)
 
 ## APIs & Tools
 
-| Category           | Technology                                       | Purpose                          |
-| ------------------ | ------------------------------------------------ | -------------------------------- |
-| **Core API**       | [Fabric API](https://fabricmc.net/) 0.164.0+26.3 | Minecraft mod API                |
-| **Language**       | Kotlin 2.4.21                                    | JVM language                     |
-| **Build Tool**     | Gradle (Kotlin DSL)                              | Build automation                 |
-| **Gradle Plugins** | `net.fabricmc.fabric-loom` 1.18-SNAPSHOT         | Fabric mod development           |
-|                    | kotlin("jvm") 2.4.21                             | Kotlin compilation               |
-|                    | ktlint 12.3.0                                    | Kotlin linting                   |
-| **Runtime**        | fabric-language-kotlin 1.14.2+kotlin.2.4.21      | Kotlin runtime on Fabric clients |
-| **Code Style**     | ktlint                                           | Kotlin linting                   |
+| Category           | Technology                                       | Purpose                           |
+| ------------------ | ------------------------------------------------ | --------------------------------- |
+| **Core API**       | [Fabric API](https://fabricmc.net/) 0.164.0+26.3 | Minecraft mod API (Fabric)        |
+| **Quilt API**      | [Quilted Fabric API](https://quiltmc.org/)       | Fabric API compatibility on Quilt |
+| **Language**       | Kotlin 2.4.21                                    | JVM language                      |
+| **Build Tool**     | Gradle (Kotlin DSL)                              | Build automation                  |
+| **Gradle Plugins** | `net.fabricmc.fabric-loom` 1.18-SNAPSHOT         | Fabric mod development            |
+|                    | kotlin("jvm") 2.4.21                             | Kotlin compilation                |
+|                    | ktlint 12.3.0                                    | Kotlin linting                    |
+| **Runtime**        | fabric-language-kotlin 1.14.2+kotlin.2.4.21      | Kotlin runtime on Fabric clients  |
+| **Code Style**     | ktlint                                           | Kotlin linting                    |
 
 ## Quick Commands
 
@@ -79,7 +80,9 @@ randomblockplacement/       # Repo root
 
 1. **RandomBlockPlacement** (`ModInitializer`) — Common entry point. Logs initialization.
 2. **RandomBlockPlacementClient** (`ClientModInitializer`) — Client entry point. Registers the key binding, ticks the random-placement logic, and renders the HUD indicator.
-3. **RandomBlockPlacementDataGenerator** (`DataGeneratorEntrypoint`) — Data generator entry point (currently empty).
+3. **RandomBlockPlacementDataGenerator** (`DataGeneratorEntrypoint`) — Data generator entry point (currently empty; Fabric only).
+
+The JAR also includes a `quilt.mod.json` so Quilt Loader can load the mod.
 
 ### Module System
 

@@ -45,5 +45,8 @@
         "java": ">=25",
         "fabric-api": "*",
         "fabric-language-kotlin": ">=1.14.2"
+    },
+    "suggests": {
+        "quilted_fabric_api": "*"
     }
 }
