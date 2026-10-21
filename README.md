@@ -1,66 +1,72 @@
-# Random Block Placement Mod
+<div id="readme-top"></div>
 
-## Overview
+<h1 align="center">
+  <br />
+    <a href="https://xodium.org/">
+        <img src="logo.svg" alt="RandomBlockPlacement Logo" width="200">
+    </a>
+  <br /><br />
+  RandomBlockPlacement
+  <br />
+  <br />
+</h1>
 
-The **Random Block Placement Mod** is a Minecraft Fabric client mod that adds a randomized block placement feature. When activated, the mod randomly selects which block to place from your hotbar, adding an element of unpredictability to building.
+<h4 align="center">A Minecraft Fabric client mod that randomly selects blocks from your hotbar when placing</h4><br />
+
+<div align="center">
+
+[![Issues][issues_shield_url]][issues_url]
+[![License][license_shield_url]][license_url]
+
+</div>
+
+## Table of Contents
+
+- [Guide](GUIDE.md)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Building](#building)
+- [Built With](#built-with)
+- [License][license_url]
 
 ## Features
 
-- **Random block selection** from your hotbar when placing blocks.
-- **Toggleable mode** using a customizable keybind (default: `R`).
-- **HUD Indicator** to show when randomization is active.
-- **Supports all block items** from Vanilla and mods.
+- Toggle random block placement with a configurable key binding.
+- HUD indicator showing whether random placement is active.
+- Restricted to client-side only — works on any server.
 
-## How to Use
+## Requirements
 
-1. Press **`R`** to toggle **Random Block Placement Mode**.
-2. When enabled, every time you place a block, a random block from your hotbar is selected.
-3. A small icon appears on the HUD when the mode is active.
+- **Minecraft** 26.3
+- **Fabric Loader** 0.19.5 or newer
+- **Fabric Language Kotlin** 1.14.2 or newer
+- **Java** 25
 
-## Installation
+## Building
 
-1. **Download** the latest release from the [Releases](https://github.com/XodiumSoftware/randomblockplacement/releases) page.
-2. Install the required dependencies:
-    - [Fabric Loader](https://fabricmc.net/use/)
-    - [Fabric API](https://modrinth.com/mod/fabric-api)
-    - [Fabric Language Kotlin](https://modrinth.com/mod/fabric-language-kotlin)
-3. Place the downloaded `.jar` file into your Minecraft `mods` folder.
-4. Launch Minecraft with the Fabric loader.
-
-## Build from Source
+This project uses [just](https://github.com/casey/just) as its command runner. Run `just` to list all recipes.
 
 ```bash
-git clone git@github.com:XodiumSoftware/randomblockplacement.git
-cd randomblockplacement
-just build
+just build    # Build the mod JAR (outputs in build/libs/)
+just run      # Run the Minecraft client with the mod
+just lint     # Run ktlint
+just format   # Fix ktlint issues
+just dev      # Build and run the client
 ```
 
-The built JAR is in `build/libs/`.
+## Built With
 
-## Development Commands
+<div align="center">
 
-Uses [just](https://github.com/casey/just) as the command runner.
+[![Built With][built_with_shield_url]][built_with_url]
 
-| Command       | Description                       |
-| ------------- | --------------------------------- |
-| `just build`  | Build the mod JAR                 |
-| `just run`    | Run the Minecraft client with mod |
-| `just lint`   | Run ktlint                        |
-| `just format` | Fix ktlint issues                 |
-| `just dev`    | Build and run the client          |
+</div>
 
-## Configuration
+<p align="right"><a href="#readme-top">▲</a></p>
 
-The mod has no configuration file. All settings are compile-time constants inside the module objects.
-
-## Contributing
-
-Contributions are welcome! If you have suggestions, bug reports, or want to contribute code, please create an issue or a pull request.
-
-1. Fork the repository.
-2. Create a new branch for your feature or fix.
-3. Commit your changes.
-4. Push to your forked repository.
-5. Open a pull request to the main repository.
-
----
+[built_with_shield_url]: https://skillicons.dev/icons?i=kotlin,gradle,github
+[built_with_url]: https://skillicons.dev
+[license_shield_url]: https://img.shields.io/github/license/XodiumSoftware/RandomBlockPlacement?style=for-the-badge
+[license_url]: https://github.com/XodiumSoftware/RandomBlockPlacement?tab=readme-ov-file#License-1-ov-file
+[issues_shield_url]: https://img.shields.io/github/issues/XodiumSoftware/RandomBlockPlacement?style=for-the-badge&color=yellow
+[issues_url]: https://github.com/XodiumSoftware/RandomBlockPlacement/issues
