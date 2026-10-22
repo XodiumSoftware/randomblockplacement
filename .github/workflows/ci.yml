@@ -55,7 +55,7 @@ jobs:
         run: ./gradlew ktlintCheck
 
   build:
-    name: Build RandomBlockPlacement
+    name: Build
     needs: [lint]
     runs-on: ubuntu-latest
     environment:
@@ -90,7 +90,7 @@ jobs:
           path: build/libs/*.jar
 
   release:
-    name: Release RandomBlockPlacement
+    name: Release
     needs: [build]
     if: github.ref == 'refs/heads/main'
     concurrency: nightly-release
