@@ -1,6 +1,7 @@
 package org.xodium
 
 import net.fabricmc.api.ClientModInitializer
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry
 import net.minecraft.ChatFormatting
 import net.minecraft.client.Minecraft
@@ -13,9 +14,20 @@ import java.util.Random
 internal object RandomBlockPlacementClient : ClientModInitializer {
     private val random = Random()
     private var randomPlacementMode = false
+    private var wasRightClicking = false
 
     override fun onInitializeClient() {
         KeyBindings.register()
+
+        ClientTickEvents.END_CLIENT_TICK.register { client ->
+            if (client.player == null || client.gui.screen() != null) return@register
+
+            val isRightClicking = client.options.keyUse.isDown
+            if (randomPlacementMode && isRightClicking && !wasRightClicking) {
+                client.player?.let { handleBlockPlacement(it) }
+            }
+            wasRightClicking = isRightClicking
+        }
 
         HudElementRegistry.addLast(RandomBlockPlacement.id("hud")) { extractor, _ ->
             if (randomPlacementMode) {

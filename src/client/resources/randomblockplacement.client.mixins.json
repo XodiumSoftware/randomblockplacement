@@ -2,7 +2,7 @@
     "required": true,
     "package": "org.xodium.mixin.client",
     "compatibilityLevel": "JAVA_25",
-    "client": ["PlayerInteractBlockMixin"],
+    "client": [],
     "injectors": {
         "defaultRequire": 1
     }

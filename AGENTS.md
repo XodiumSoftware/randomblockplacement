@@ -63,9 +63,7 @@ randomblockplacement/       # Repo root
 │   └── org/xodium/
 │       ├── RandomBlockPlacementClient.kt
 │       ├── RandomBlockPlacementRenderer.kt
-│       ├── KeyBindings.kt
-│       └── mixin/client/
-│           └── PlayerInteractBlockMixin.kt
+│       └── KeyBindings.kt
 ├── src/main/resources/     # Common resources
 │   ├── fabric.mod.json
 │   ├── randomblockplacement.mixins.json
@@ -88,7 +86,7 @@ The JAR also includes a `quilt.mod.json` so Quilt Loader can load the mod.
 
 - All entry points are Kotlin `object` singletons.
 - The mod uses compile-time constants only — there is no file-based configuration.
-- Client mixins live in `org.xodium.mixin.client` and are declared in `randomblockplacement.client.mixins.json`.
+- Client mixins live in `org.xodium.mixin.client` and are declared in `randomblockplacement.client.mixins.json`. The mod currently ships no client mixins, so both mixin configs declare empty lists.
 
 ### Key Conventions
 
