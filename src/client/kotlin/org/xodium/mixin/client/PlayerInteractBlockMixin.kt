@@ -22,6 +22,7 @@ class PlayerInteractBlockMixin {
         hitResult: BlockHitResult,
         cir: CallbackInfoReturnable<InteractionResult>,
     ) {
+        if (cir.returnValue !is InteractionResult.Success) return
         Minecraft.getInstance().player?.let { RandomBlockPlacementClient.handleBlockPlacement(it) }
     }
 }
